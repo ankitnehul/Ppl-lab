@@ -1,0 +1,19 @@
+1)How is array declaration and initialization handled?
+
+ANS.	Array is initialized same as the variables are initialized.
+	The initialization is split into  multiple statements that assign values
+        to  individual array  elements.
+	
+2)Why does the statement a[i] = b[i] get broken down to two steps with
+an intermediate temporary?
+
+ANS.	 As GIMPLE  can perform only  one operation per statement,  
+         It cannot read  and write  to  array  locations at  the  same  time.
+	 Thus,  these are  split into separate read and write statements
+	 by introducing a temporary.
+
+3)Why are there CLOBBER statements at the end?
+
+ANS.	CLOBBER statements are used for  address-escaped variables. It is an
+        annotation  to  signify  that  the  scope  of  this  address-escaped
+        variable has ended.	

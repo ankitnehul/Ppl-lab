@@ -1,0 +1,5 @@
+1)What will happen if "a = a + N" is replaced by "a = a + 1"?
+
+ANS.	The loop will be unrolled and constant propogation will allow GCC to
+        compute  the final  value of  `a'. Hence  the loop  will be  removed
+        entirely.

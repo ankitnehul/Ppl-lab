@@ -1,0 +1,20 @@
+1)How many  times is the expression  (a + c) computed  in the original
+code (as seen in the SSA pass)? What about after the FRE pass?
+
+ANS.	The original code showed two computations, but the FRE pass was able
+        to  reuse the  temporary variable  which  stored the  result of  the
+        intitial computation  of (a +  c).
+
+2) Why did  we have  to put a  "return b" in  this assignment?  What if
+"return b" is changed to "return 0"? Will it make any difference?
+
+ANS.	"return  b" was  required to  make the  computation of  variable `b'
+         meaningful. If function  `main' is going to "return 0"  and there is
+         no other  output, GCC  will realise that  the entire  computation of
+         variable `b' was  dead code and will eliminate  its dependencies one
+         by one until the resulting program reduces to:
+        
+                int main()
+                {
+                    return 0;
+                }	

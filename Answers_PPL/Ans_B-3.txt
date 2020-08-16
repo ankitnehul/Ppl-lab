@@ -1,0 +1,9 @@
+1)In the file B-3.c, what values  can variable `a' take? Will the `if'
+condition [a  < 4] ever  be true?  Inspect the file  B-3.c.*.vrp1 to
+analyze the dump.
+
+ANS.	Variable `a' can take the values  4 to 99. Since, the `if' condition
+        will never be  true for the give loop  bounds, [b = b +  2] is never
+        executed. Therefore, the optimized  code has eliminated this program
+        statement.
+	

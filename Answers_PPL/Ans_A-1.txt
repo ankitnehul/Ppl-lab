@@ -1,0 +1,25 @@
+1)How  do the  declarations  look in  the  GIMPLE? Specifically,  what happens to multiple  variables declared and 
+initialized  on the same line? What happens to global declaration [int Z]?
+
+ANS.	 Each  declaration is  displayed on  its own  line as  an independent
+         local variable  declaration . For multiple variable they are declared
+	 first and then the respective value is assigned.
+	 There is no  declaration for global  variables; they
+         are used directly.
+	
+2)How are complex  expressions such as [c  = a * b +  25] broken down?
+Can you  determine a  rule as  to when  temporary variables  will be
+introduced?
+
+ANS.    Any expression containing  more than  one  operation is  broken  up by  introducing
+        temporary variable. Firsly temporary variable _1 is created and a * b is assigned into it
+	after that in next step 25 is added into _1 and their addition is assigned to the variable c.
+	
+3)How are  floats/doubles represented in  GIMPLE? What happens  when a
+float/double is assigned to an integer in [Z = r]?
+
+ANS.	Floats/doubles  are  displayed  in   scientific  notation like which is used in      	calculator.
+	First a temporary variable _2 is created and the integer value of r is stored in _2.
+	On next step the value of _2 is assigned to Z.
+
+
